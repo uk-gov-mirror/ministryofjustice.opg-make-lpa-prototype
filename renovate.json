@@ -1,0 +1,23 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended", "docker:pinDigests"],
+  "branchNameStrict": true,
+  "branchPrefix": "renovate-",
+  "configMigration": true,
+  "postUpdateOptions": ["gomodTidy"],
+  "labels": ["Dependencies", "Renovate"],
+  "prConcurrentLimit": 0,
+  "packageRules": [
+    {
+      "groupName": "Minor & Patch Updates",
+      "groupSlug": "all-minor-patch-updates",
+      "matchUpdateTypes": ["minor", "patch"],
+      "minimumReleaseAge": "7 days",
+      "commitMessageSuffix": " #patch",
+      "matchPackageNames": ["*"]
+    }
+  ],
+  "vulnerabilityAlerts": {
+    "groupName": "Security Alerts"
+  }
+}
